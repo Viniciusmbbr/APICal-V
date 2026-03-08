@@ -108,4 +108,4 @@ api-calculadora/
 
 ## 👨‍💻 Autor
 
-Feito por **Vinicius**
+Feito por **ViniciusMB**
