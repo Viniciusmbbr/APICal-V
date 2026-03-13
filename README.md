@@ -1,6 +1,6 @@
 # 🧮 API Calculadora
 
-> API de operações matemáticas construída com **FastAPI** + **Python**
+> API de operações matemáticas com interface visual, histórico de cálculos e geração de gráficos — construída com **FastAPI** + **Python**
 
 ---
 
@@ -8,13 +8,39 @@
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green?style=for-the-badge&logo=fastapi&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-gráficos-orange?style=for-the-badge&logo=python&logoColor=white)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-purple?style=for-the-badge)
 
 ---
 
 ## 📋 Sobre o Projeto
 
-API REST simples que recebe dois números e realiza as quatro operações matemáticas básicas: **soma**, **subtração**, **multiplicação** e **divisão**.
+API REST que recebe dois números e realiza as quatro operações matemáticas básicas. Conta com uma **interface web** integrada, **histórico de cálculos** e **geração de gráficos** com os resultados.
+
+---
+
+## 🖥️ Interface
+
+> Acesse `http://localhost:8000` com o servidor rodando para ver a interface
+
+A interface conta com:
+- Campo para inserir os dois números
+- Botões para cada operação matemática
+- Exibição do resultado em tempo real
+- Histórico de todos os cálculos realizados
+- Botão para gerar gráfico do histórico
+
+---
+
+## ✨ Funcionalidades
+
+- ➕ Soma
+- ➖ Subtração
+- ✖️ Multiplicação
+- ➗ Divisão
+- 📋 Histórico de cálculos realizados
+- 📊 Geração de gráfico com os resultados
+- 🖥️ Interface web integrada
 
 ---
 
@@ -28,7 +54,7 @@ cd api-calculadora
 
 **2. Instale as dependências:**
 ```bash
-pip install fastapi uvicorn
+pip install fastapi uvicorn matplotlib python-multipart
 ```
 
 ---
@@ -39,18 +65,24 @@ pip install fastapi uvicorn
 python -m uvicorn api:app --reload
 ```
 
-O servidor estará disponível em: `http://localhost:8000`
+Acesse a interface no navegador:
+```
+http://localhost:8000
+```
 
 ---
 
 ## 🔗 Endpoints
 
-| Método | Endpoint | Operação |
-|--------|----------|----------|
-| `POST` | `/soma` | ➕ Soma |
-| `POST` | `/subtracao` | ➖ Subtração |
-| `POST` | `/multiplicacao` | ✖️ Multiplicação |
-| `POST` | `/divisao` | ➗ Divisão |
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/` | Interface visual da calculadora |
+| `POST` | `/soma` | Soma dois números |
+| `POST` | `/subtracao` | Subtrai dois números |
+| `POST` | `/multiplicacao` | Multiplica dois números |
+| `POST` | `/divisao` | Divide dois números |
+| `GET` | `/historico` | Retorna histórico de cálculos |
+| `GET` | `/grafico` | Retorna gráfico do histórico |
 
 ---
 
@@ -87,8 +119,12 @@ Divisão por zero retorna erro `400`:
 
 ## 🧪 Como Testar
 
-Acesse a documentação interativa automática do FastAPI:
+**Interface visual:**
+```
+http://localhost:8000
+```
 
+**Documentação interativa do FastAPI:**
 ```
 http://localhost:8000/docs
 ```
@@ -100,6 +136,7 @@ http://localhost:8000/docs
 ```
 api-calculadora/
 ├── api.py            # Código principal da API
+├── index.html        # Interface web
 ├── requirements.txt  # Dependências do projeto
 └── README.md         # Documentação
 ```
@@ -108,4 +145,4 @@ api-calculadora/
 
 ## 👨‍💻 Autor
 
-Feito por **ViniciusMB**
+Feito com por ViniciusMB
